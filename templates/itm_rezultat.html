@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Vas ITM{% endblock title %}
+
+{% block page_content %}
+    <h1>Vas ITM je:</h1>
+
+    <h2>{{ itm }}</h2>
+<br>
+    {% if (itm < 16) %}
+        <h1>You are probably dead!</h1>
+    {% endif %}
+
+    {% if (itm >= 16) and (itm <= 18.5) %}
+        <div class="alert alert-danger" role="alert">SUHOST</div>
+    {% endif %}
+
+    {% if (itm >= 18.6) and (itm <= 25) %}
+        <div class="alert alert-success" role="alert">NORMALNA TELESNA MASA</div>
+    {% endif %}
+
+    {% if (itm >= 25.1) and (itm <= 30) %}
+        <div class="alert alert-warning" role="alert">ZVECANA TELESNA MASA</div>
+    {% endif %}
+
+    {% if itm >= 30.1 %}
+        <div class="alert alert-danger" role="alert">DEBELOST</div>
+    {% endif %}
+<br>
+
+    <a href="/itm">Zelis ponovno izracunati ITM?</a> <br>
+    <a href="/">Nazaj na domaco stran</a>
+
+
+
+
+
+{% endblock page_content %}
